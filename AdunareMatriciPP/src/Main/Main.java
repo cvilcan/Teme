@@ -19,20 +19,28 @@ public class Main
 	{
 		MatrixIO io = new MatrixIO(); 
 				
-		int n = 3000;//io.ReadInt("Enter n: ");
-		int m = 4000;//io.ReadInt("Enter m: ");
-		int p = 4;//io.ReadInt("Enter p: ");
-		Matrix matrix = new Matrix(n, m);
-		Matrix matrixToAdd = new Matrix(n, m);
+		int n = io.ReadInt("Enter n: ");
+		int m = io.ReadInt("Enter m: ");
+		int p = io.ReadInt("Enter p: ");
 		
 		long startTime = System.nanoTime();
-		java.util.Date date = new java.util.Date();
-		System.out.print("Entering method");
-		matrix.AdditionWithThreads(matrixToAdd, p);
-		System.out.println("Exited method");
+		Matrix matrix = new Matrix(n, m);
 		long endTime = System.nanoTime();
+		System.out.printf("Creation of matrix one took %f \n", (endTime - startTime) / 1000000000.0);
 		
-		System.out.printf("Elapsed time: %f seconds", (endTime - startTime) / 1000000000.0);
+		startTime = System.nanoTime();
+		Matrix matrixToAdd = new Matrix(n, m);
+		endTime = System.nanoTime();
+		System.out.printf("Creation of matrix two  took %f \n", (endTime - startTime) / 1000000000.0);
+		
+		startTime = System.nanoTime();
+		System.out.println("Entering method " + Thread.currentThread().getName());
+		matrix.AdditionWithThreads(matrixToAdd, p);
+		endTime = System.nanoTime();
+		System.out.println("Exited method " + Thread.currentThread().getName());
+		
+		
+		System.out.printf("Elapsed time: %f seconds \n", (endTime - startTime) / 1000000000.0);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		try
 		{

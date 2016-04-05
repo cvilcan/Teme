@@ -59,13 +59,14 @@ public class Matrix
 		
 		for (int i = 0; i < threadCount; i++)
 		{
-			System.out.println("Entering thread " + String.valueOf(i));
-			threadList.get(i).start();
 			try
 			{
-				System.out.println("Waiting for thread " + String.valueOf(i));
+				long startTime = System.nanoTime();
+				threadList.get(i).start();
+				System.out.println("Waiting for thread " + threadList.get(i).getName());
 				threadList.get(i).join();
-				System.out.println("Thread " + String.valueOf(i) + " ended");
+				long endTime = System.nanoTime();
+				System.out.printf("Thread " + threadList.get(i).getName() + " ended in %f\n" , (endTime - startTime) / 1000000000.0);
 			}
 			catch (InterruptedException e)
 			{
@@ -118,6 +119,7 @@ public class Matrix
 		@Override
 		public void run()
 		{
+			System.out.println("Entering thread " + Thread.currentThread().getName());
 			for (int i = startIndex.GetLine(); i <= endIndex.GetLine(); i++)
 			{
 				int j;
@@ -135,7 +137,7 @@ public class Matrix
 					j++;
 				}
 			}
-			System.out.println("Done with thread");
+			System.out.println("Done with thread " + Thread.currentThread().getName());
 		}
 	}
 }
