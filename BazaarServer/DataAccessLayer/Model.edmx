@@ -53,6 +53,7 @@
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Salt" Type="int" Nullable="false" />
+          <Property Name="LoginToken" Type="uniqueidentifier" />
         </EntityType>
         <Association Name="FK_Cart_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
@@ -216,6 +217,7 @@
           <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Salt" Type="Int32" Nullable="false" />
+          <Property Name="LoginToken" Type="Guid" />
           <NavigationProperty Name="Carts" Relationship="BazaarModel.FK_Cart_UserProfile" FromRole="UserProfile" ToRole="Cart" />
         </EntityType>
         <Association Name="FK_Cart_Product">
@@ -302,6 +304,7 @@
           <EntitySetMapping Name="UserProfiles">
             <EntityTypeMapping TypeName="BazaarModel.UserProfile">
               <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="LoginToken" ColumnName="LoginToken" />
                 <ScalarProperty Name="Salt" ColumnName="Salt" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

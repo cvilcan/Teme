@@ -10,12 +10,12 @@ namespace PresentationLayer.Interfaces
 	{
 		List<Product> GetAllProducts();
 
-		string BuyProduct(int usderID, int productID, int quantity);
+		string BuyProduct(Guid loginToken, int productID, int quantity);
 
 		List<NetworkModule.PresentationModels.Type> GetAllTypes();
 
 		List<Product> GetAllProducts(List<int> selectedCategoryIDs);
 
-		List<Product> GetAllProductsFromCart(int userID);
+		List<Product> GetAllProductsFromCart(Guid loginToken);
 	}
 }

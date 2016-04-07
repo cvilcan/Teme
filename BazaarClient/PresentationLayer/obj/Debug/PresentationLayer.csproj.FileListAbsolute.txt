@@ -1,0 +1,15 @@
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.Forms.Bazaar.resources
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.Forms.Login.resources
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.Forms.ViewCart.resources
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.csproj.GenerateResource.Cache
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\PresentationLayer.dll
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\PresentationLayer.pdb
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\NetworkModule.dll
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\Newtonsoft.Json.dll
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\NetworkModule.pdb
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\Newtonsoft.Json.xml
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.csprojResolveAssemblyReference.cache
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.dll
+D:\Teme\BazaarClient\PresentationLayer\obj\Debug\PresentationLayer.pdb
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\NetworkUtilities.dll
+D:\Teme\BazaarClient\PresentationLayer\bin\Debug\NetworkUtilities.pdb

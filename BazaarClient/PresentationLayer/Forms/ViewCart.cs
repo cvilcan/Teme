@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace PresentationLayer.Forms
 	public partial class ViewCart : Form
 	{
 		private IProductController _productController;
-		private int _userID;
+		private Guid _loginToken;
 
 		public ViewCart(IProductController dep)
 		{
@@ -25,10 +26,10 @@ namespace PresentationLayer.Forms
 		private void ViewCart_Shown(object sender, EventArgs e)
 		{
 			Object o;
-			WinformsSession.dictionary.TryGetValue("UserID", out o);
-			if (o is int)
+			WinformsSession.dictionary.TryGetValue("LoginToken", out o);
+			if (o is Guid)
 			{
-				_userID = (int)o;
+				_loginToken = (Guid)o;
 			}
 			else
 			{
@@ -40,9 +41,16 @@ namespace PresentationLayer.Forms
 
 		private void RefreshGridView()
 		{
-			var productList = _productController.GetAllProductsFromCart(_userID);
-			dataGridViewProducts.DataSource = null;
-			dataGridViewProducts.DataSource = productList;
+            try
+            {
+                var productList = _productController.GetAllProductsFromCart(_loginToken);
+                dataGridViewProducts.DataSource = null;
+                dataGridViewProducts.DataSource = productList;
+            }
+            catch (WebException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 		}
 	}
 }

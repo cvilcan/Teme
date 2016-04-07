@@ -1,0 +1,10 @@
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\Teme\BazaarServer\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Teme\BazaarServer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Teme\BazaarServer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Teme\BazaarServer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

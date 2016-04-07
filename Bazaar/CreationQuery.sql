@@ -39,6 +39,7 @@ create table UserProfile
 	Salt int not null,
 	constraint PK_UserProfile primary key(UserID)
 )
+alter table UserProfile add LoginToken uniqueidentifier 
 
 create table Cart
 (
@@ -49,3 +50,5 @@ create table Cart
 	constraint FK_Cart_UserProfile foreign key(UserID) references UserProfile(UserID),
 	Constraint FK_Cart_Product foreign key(ProductID) references Product(ProductID)
 )
+
+insert into Product values('Screwdriver', 'Red', 11), ('Pillow', 'Goose feathers', 55), ('Pickhammer', 'Medieval!', 999), ('Golf clujb', 'Bent', 60), ('Jade warrior', 'Cracked', 7), ('Fur coat', 'Hair falling off', 70), ('Drawer', 'Rotting', 23)

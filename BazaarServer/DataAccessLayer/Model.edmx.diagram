@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ede221804fbe44618c1817af7703919a" Name="Diagram1">
-        <EntityTypeShape EntityType="BazaarModel.Cart" Width="1.5" PointX="3" PointY="2.75" />
-        <EntityTypeShape EntityType="BazaarModel.Product" Width="1.5" PointX="0.75" PointY="3.5" />
-        <EntityTypeShape EntityType="BazaarModel.Stock" Width="1.5" PointX="3" PointY="5.5" />
-        <EntityTypeShape EntityType="BazaarModel.Type" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="BazaarModel.UserProfile" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BazaarModel.Cart" Width="1.5" PointX="6" PointY="4.875" />
+        <EntityTypeShape EntityType="BazaarModel.Product" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="BazaarModel.Stock" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="BazaarModel.Type" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="BazaarModel.UserProfile" Width="1.5" PointX="3.75" PointY="0.75" />
         <AssociationConnector Association="BazaarModel.FK_Cart_Product" />
         <AssociationConnector Association="BazaarModel.FK_Cart_UserProfile" />
         <AssociationConnector Association="BazaarModel.fk_Stock_Product" />

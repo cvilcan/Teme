@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using PresentationLayer.Interfaces;
 using NetworkModule.Services;
 using PresentationLayer.Forms;
+using NetworkModule.Services.SocketServices;
 
 namespace NetworkModule
 {
@@ -26,7 +27,7 @@ namespace NetworkModule
 				x.For<IAsynchronousClient>().Use<AsynchronousClient>();
 				x.For<IProductService>().Use<ProductService>();
 				x.For<IAccountController>().Use<AccountController>();
-				x.For<IUserService>().Use<UserService>();
+				x.For<IUserService>().Use<NetworkModule.Services.SocketServices.UserService>();
 				x.For<Bazaar>().Use<Bazaar>();
 				x.For<Login>().Use<Login>();
 				x.For<ViewCart>().Use<ViewCart>();

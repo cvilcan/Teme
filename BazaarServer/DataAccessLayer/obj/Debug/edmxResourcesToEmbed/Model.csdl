@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BazaarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BazaarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carts" EntityType="BazaarModel.Cart" />
+    <EntitySet Name="Products" EntityType="BazaarModel.Product" />
+    <EntitySet Name="Stocks" EntityType="BazaarModel.Stock" />
+    <EntitySet Name="Types" EntityType="BazaarModel.Type" />
+    <EntitySet Name="UserProfiles" EntityType="BazaarModel.UserProfile" />
+    <AssociationSet Name="FK_Cart_Product" Association="BazaarModel.FK_Cart_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_UserProfile" Association="BazaarModel.FK_Cart_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Stock_Product" Association="BazaarModel.fk_Stock_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="ProductTypes" Association="BazaarModel.ProductTypes">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Type" EntitySet="Types" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="BazaarModel.FK_Cart_Product" FromRole="Cart" ToRole="Product" />
+    <NavigationProperty Name="UserProfile" Relationship="BazaarModel.FK_Cart_UserProfile" FromRole="Cart" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Carts" Relationship="BazaarModel.FK_Cart_Product" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="Stock" Relationship="BazaarModel.fk_Stock_Product" FromRole="Product" ToRole="Stock" />
+    <NavigationProperty Name="Types" Relationship="BazaarModel.ProductTypes" FromRole="Product" ToRole="Type" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="BazaarModel.fk_Stock_Product" FromRole="Stock" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="BazaarModel.ProductTypes" FromRole="Type" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salt" Type="Int32" Nullable="false" />
+    <Property Name="LoginToken" Type="Guid" />
+    <NavigationProperty Name="Carts" Relationship="BazaarModel.FK_Cart_UserProfile" FromRole="UserProfile" ToRole="Cart" />
+  </EntityType>
+  <Association Name="FK_Cart_Product">
+    <End Type="BazaarModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="BazaarModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_UserProfile">
+    <End Type="BazaarModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="BazaarModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Stock_Product">
+    <End Type="BazaarModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="BazaarModel.Stock" Role="Stock" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductTypes">
+    <End Type="BazaarModel.Product" Role="Product" Multiplicity="*" />
+    <End Type="BazaarModel.Type" Role="Type" Multiplicity="*" />
+  </Association>
+</Schema>

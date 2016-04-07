@@ -1,0 +1,13 @@
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\ApiConsumer.dll
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\ApiConsumer.pdb
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\Flurl.Http.NETCore.dll
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\Flurl.NETCore.dll
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\Newtonsoft.Json.dll
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\System.Net.Http.Formatting.dll
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\Flurl.Http.NETCore.xml
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\Flurl.NETCore.xml
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\Newtonsoft.Json.xml
+D:\Teme\BazaarClient\ApiConsumer\bin\Debug\System.Net.Http.Formatting.xml
+D:\Teme\BazaarClient\ApiConsumer\obj\Debug\ApiConsumer.csprojResolveAssemblyReference.cache
+D:\Teme\BazaarClient\ApiConsumer\obj\Debug\ApiConsumer.dll
+D:\Teme\BazaarClient\ApiConsumer\obj\Debug\ApiConsumer.pdb

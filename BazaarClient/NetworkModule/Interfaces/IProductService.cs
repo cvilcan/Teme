@@ -12,7 +12,7 @@ namespace NetworkModule.Interfaces
 		List<Product> GetAllProducts();
 		List<Product> GetAllProducts(List<int> selectedCategoryIDs);
 		List<NetworkModule.PresentationModels.Type> GetAllTypes();
-		string BuyProduct(int userID, int productID, int quantity);
-		List<Product> GetAllProductsFromCart(int userID);
+		string BuyProduct(Guid loginToken, int productID, int quantity);
+		List<Product> GetAllProductsFromCart(Guid loginToken);
 	}
 }

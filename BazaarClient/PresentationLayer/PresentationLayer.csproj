@@ -82,6 +82,10 @@
       <Project>{10075a02-bfe5-4bf9-a7e3-12243fbd4397}</Project>
       <Name>NetworkModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NetworkUtilities\NetworkUtilities.csproj">
+      <Project>{54e7b41b-b776-463d-9d4d-30af0ba1b093}</Project>
+      <Name>NetworkUtilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

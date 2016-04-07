@@ -1,0 +1,5 @@
+D:\Teme\BazaarClient\NetworkUtilities\obj\Debug\NetworkUtilities.csprojResolveAssemblyReference.cache
+D:\Teme\BazaarClient\NetworkUtilities\bin\Debug\NetworkUtilities.dll
+D:\Teme\BazaarClient\NetworkUtilities\bin\Debug\NetworkUtilities.pdb
+D:\Teme\BazaarClient\NetworkUtilities\obj\Debug\NetworkUtilities.dll
+D:\Teme\BazaarClient\NetworkUtilities\obj\Debug\NetworkUtilities.pdb

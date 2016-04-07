@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,23 @@ namespace PresentationLayer.Forms
 		{
 			_accountController = dependency;
 			bazaar = ba;
-			ba.FormClosed += new FormClosedEventHandler(f_FormClosed);
+			ba.FormClosed += new FormClosedEventHandler(Bazaar_FormClosed);
+            ba.VisibleChanged += new EventHandler(Bazaar_FormHidden);
 			InitializeComponent();
 		}
+
+        private void Bazaar_FormHidden(object sender, EventArgs e)
+        {
+            if (bazaar.Visible == false)
+            {
+                this.Show();
+                Object o = Guid.Empty;
+                WinformsSession.dictionary.TryGetValue("LoginToken", out o);
+                if (o is Guid)
+                    _accountController.Logout((Guid)o);
+                else MessageBox.Show("Invalid login!");
+            }
+        }
 
 		private void buttonLogin_Click(object sender, EventArgs e)
 		{
@@ -45,14 +60,22 @@ namespace PresentationLayer.Forms
 
 				string hashedPassword = Convert.ToBase64String(hashByteArray);
 
-				int succesfulLogIn = _accountController.Login(username, hashedPassword);
+                try
+                {
+                    Guid succesfulLogIn = _accountController.Login(username, hashedPassword);
 
-				if (succesfulLogIn > 0)
-				{
-					this.Hide();
-					WinformsSession.dictionary.Add("UserID", succesfulLogIn);
-					bazaar.Show();
-				}
+                    if (succesfulLogIn != Guid.Empty)
+                    {
+                        this.Hide();
+                        WinformsSession.dictionary.Add("LoginToken", succesfulLogIn);
+                        bazaar.Show();
+                    }
+                    else MessageBox.Show("Invalid credentials!");
+                }
+                catch (WebException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 			}
 		}
 
@@ -75,18 +98,26 @@ namespace PresentationLayer.Forms
 
 				string hashedPassword = Convert.ToBase64String(hashByteArray);
 
-				int succesfulRegister = _accountController.Register(username, hashedPassword);
+                try
+                {
+                    Guid succesfulRegister = _accountController.Register(username, hashedPassword);
 
-				if (succesfulRegister > 0)
-				{
-					this.Hide();
-					WinformsSession.dictionary.Add("UserID", succesfulRegister);
-					bazaar.Show();
-				}
+                    if (succesfulRegister != Guid.Empty)
+                    {
+                        this.Hide();
+                        WinformsSession.dictionary.Add("UserID", succesfulRegister);
+                        bazaar.Show();
+                    }
+                    else MessageBox.Show("Failed to register!");
+                }
+                catch (WebException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 			}
 		}
 
-		private void f_FormClosed(object sender, FormClosedEventArgs e)
+		private void Bazaar_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			this.Close();
 		}

@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetworkUtilities.ExtensionMethods;
 
 namespace PresentationLayer.Controllers
 {
 	public class AccountController: IAccountController
 	{
+        const int OPERATION_TIMEOUT = 7000;
 		private IUserService _userService;
 
 		public AccountController(IUserService dependency)
@@ -17,14 +19,22 @@ namespace PresentationLayer.Controllers
 			_userService = dependency;
 		}
 
-		public int Login(string username, string hashedPassword)
+		public Guid Login(string username, string hashedPassword)
 		{
-			return _userService.Login(username, hashedPassword);
+            Func<Guid> login = () => _userService.Login(username, hashedPassword);
+            return login.WithTimeout(OPERATION_TIMEOUT);
 		}
 
-		public int Register(string username, string hashedPassword)
+		public Guid Register(string username, string hashedPassword)
 		{
-			return _userService.Register(username, hashedPassword);
+            Func<Guid> register = () => _userService.Register(username, hashedPassword);
+            return register.WithTimeout(OPERATION_TIMEOUT);
 		}
-	}
+
+        public void Logout(Guid guid)
+        {
+            Action logout = () => _userService.Logout(guid);
+            logout.WithTimeout(OPERATION_TIMEOUT);
+        }
+    }
 }

@@ -13,7 +13,7 @@ namespace BusinessLayer.Services
 	{
 		private IProductRepository _productRepository;
 
-		public ProductService(IProductRepository dependency)
+		public ProductService(IProductRepository dependency, IUserRepository depe2)
 		{
 			_productRepository = dependency;
 		}
@@ -59,6 +59,16 @@ namespace BusinessLayer.Services
 				if (found)
 					resultList.Add(item);
 			}
+
+            List<PresentationModels.Type> filteredTypesList = GetAllTypes();
+            for (int i = 0; i < filteredTypesList.Count; i++)
+                if (selectedCategoryIDs.Contains(filteredTypesList[i].TypeID))
+                    filteredTypesList.Remove(filteredTypesList[i]);
+
+            for (int i = 0; i < resultList.Count; i++)
+                foreach (var type in resultList[i].Types)
+                    if (filteredTypesList.Contains(type))
+                        resultList.Remove(resultList[i]);
 
 			return resultList;
 		}

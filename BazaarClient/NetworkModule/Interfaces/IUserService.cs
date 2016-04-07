@@ -8,7 +8,8 @@ namespace NetworkModule.Interfaces
 {
 	public interface IUserService
 	{
-		int Login(string username, string hashedPassword);
-		int Register(string username, string hashedPassword);
-	}
+		Guid Login(string username, string hashedPassword);
+		Guid Register(string username, string hashedPassword);
+        void Logout(Guid guid);
+    }
 }

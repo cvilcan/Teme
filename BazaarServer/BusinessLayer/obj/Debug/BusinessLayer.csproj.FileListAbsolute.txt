@@ -1,0 +1,14 @@
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\EntityFramework.xml
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\DataAccessLayer.dll
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\StructureMap.dll
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\StructureMap.Net4.dll
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\EntityFramework.dll
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\StructureMap.pdb
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\StructureMap.xml
+D:\Teme\BazaarServer\BusinessLayer\bin\Debug\StructureMap.Net4.pdb
+D:\Teme\BazaarServer\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Teme\BazaarServer\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\Teme\BazaarServer\BusinessLayer\obj\Debug\BusinessLayer.pdb

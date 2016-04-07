@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetworkModule.PresentationModels;
 using PresentationLayer.Interfaces;
+using System.Net;
 
 namespace PresentationLayer.Forms
 {
@@ -16,7 +17,7 @@ namespace PresentationLayer.Forms
 	{
 		private ViewCart _viewCart;
 		private IProductController _productController;
-		private int _userID;
+		private Guid _loginToken;
 
 		public Bazaar(IProductController ctrl, ViewCart cart)
 		{
@@ -25,39 +26,27 @@ namespace PresentationLayer.Forms
 			_viewCart = cart;
 		}
 
-		private void Bazaar_Shown(object sender, EventArgs e)
-		{
-			InitializeSelectedCategoriesList();
-			RefreshProductDisplay();
-			Object o;
-			if (WinformsSession.dictionary.TryGetValue("UserID", out o))
-			{
-				if (o is Int32)
-				{
-					_userID = (int)o;
-				}
-			}
-			else
-			{
-				MessageBox.Show("Invalid login!");
-				this.Close();
-			}
-		}
-
 		private void InitializeSelectedCategoriesList()
 		{
-			List<NetworkModule.PresentationModels.Type> typeList = _productController.GetAllTypes();
+            try
+            {
+                List<NetworkModule.PresentationModels.Type> typeList = _productController.GetAllTypes();
 
-			listBoxSelectedCategories.Items.Clear();
-			listBoxFilteredCategories.Items.Clear();
-			foreach (var item in typeList)
-			{
-				listBoxSelectedCategories.Items.Add(new ListBoxTypeItem()
-					{
-						TypeID = item.TypeID,
-						TypeName = item.TypeName
-					});
-			}
+                listBoxSelectedCategories.Items.Clear();
+                listBoxFilteredCategories.Items.Clear();
+                foreach (var item in typeList)
+                {
+                    listBoxSelectedCategories.Items.Add(new ListBoxTypeItem()
+                    {
+                        TypeID = item.TypeID,
+                        TypeName = item.TypeName
+                    });
+                }
+            }
+            catch (WebException e)
+            {
+                MessageBox.Show(e.Message);
+            }
 		}
 
 		private void RefreshGridView(List<Product> productList)
@@ -113,14 +102,21 @@ namespace PresentationLayer.Forms
 				MessageBox.Show(errorMessage);
 			else
 			{
-				returnMessage = _productController.BuyProduct(_userID, (int)productID, quantity);
-				if (returnMessage == "Success!")
-				{
-					RefreshProductDisplay();
-					MessageBox.Show(returnMessage);
-				}
-				else if (returnMessage != "")
-					MessageBox.Show(returnMessage);
+                try
+                {
+                    returnMessage = _productController.BuyProduct(_loginToken, (int)productID, quantity);
+                    if (returnMessage == "Success!")
+                    {
+                        MessageBox.Show(returnMessage);
+                    }
+                    else if (returnMessage != "")
+                        MessageBox.Show(returnMessage);
+                    RefreshProductDisplay();
+                }
+                catch (WebException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 			}
 		}
 
@@ -143,11 +139,18 @@ namespace PresentationLayer.Forms
 
 		private void RefreshProductDisplay()
 		{
-			List<Product> productList = _productController.GetAllProducts(GetSelectedCategories());
+            try
+            {
+                List<Product> productList = _productController.GetAllProducts(GetSelectedCategories());
 
-			dataGridViewProducts.DataSource = productList;
-			RefreshGridView(productList);
-			RefreshBuyInput(productList);
+                dataGridViewProducts.DataSource = productList;
+                RefreshGridView(productList);
+                RefreshBuyInput(productList);
+            }
+            catch (WebException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 		}
 
 		private void buttonFilterCategory_Click(object sender, EventArgs e)
@@ -207,12 +210,59 @@ namespace PresentationLayer.Forms
 		private void buttonViewCart_Click(object sender, EventArgs e)
 		{
 			this._viewCart.ShowDialog();
-			_viewCart.FormClosed += new FormClosedEventHandler(f_FormClosed);
+			_viewCart.FormClosed += new FormClosedEventHandler(ViewCart_FormClosed);
 		}
 
-		private void f_FormClosed(object sender, FormClosedEventArgs e)
+		private void ViewCart_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			this.Show();
 		}
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            _loginToken = Guid.Empty;
+            WinformsSession.dictionary.Clear();
+            this.Hide();
+        }
+
+        private void Bazaar_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+            {
+                InitializeSelectedCategoriesList();
+                RefreshProductDisplay();
+                Object o;
+                if (WinformsSession.dictionary.TryGetValue("LoginToken", out o))
+                {
+                    if (o is Guid)
+                    {
+                        _loginToken = (Guid)o;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid login!");
+                    this.Close();
+                }
+            }
+            else
+            {
+                ClearAllFields();
+            }
+        }
+
+        private void ClearAllFields()
+        {
+            dataGridViewProducts.DataSource = null;
+            textBoxQuantity.Text = "";
+            comboBoxProducts.Items.Clear();
+            listBoxFilteredCategories.Items.Clear();
+            listBoxSelectedCategories.Items.Clear();
+        }
+
+        private void buttonRefreshData_Click(object sender, EventArgs e)
+        {
+            RefreshProductDisplay();
+        }
 	}
 }

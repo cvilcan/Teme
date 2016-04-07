@@ -1,0 +1,1 @@
+D:\Teme\BazaarClient\CommunicationLayer\obj\Debug\CommunicationLayer.csprojResolveAssemblyReference.cache

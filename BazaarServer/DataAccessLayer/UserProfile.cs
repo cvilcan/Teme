@@ -23,6 +23,7 @@ namespace DataAccessLayer
         public string Username { get; set; }
         public string Password { get; set; }
         public int Salt { get; set; }
+        public Nullable<System.Guid> LoginToken { get; set; }
     
         public virtual ICollection<Cart> Carts { get; set; }
     }

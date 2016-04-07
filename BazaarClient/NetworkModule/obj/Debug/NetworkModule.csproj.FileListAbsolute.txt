@@ -1,0 +1,11 @@
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\NetworkModule.dll
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\NetworkModule.pdb
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\Flurl.Http.NETCore.dll
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\Flurl.NETCore.dll
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\Newtonsoft.Json.dll
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\Flurl.Http.NETCore.xml
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\Flurl.NETCore.xml
+D:\Teme\BazaarClient\NetworkModule\bin\Debug\Newtonsoft.Json.xml
+D:\Teme\BazaarClient\NetworkModule\obj\Debug\NetworkModule.dll
+D:\Teme\BazaarClient\NetworkModule\obj\Debug\NetworkModule.pdb
+D:\Teme\BazaarClient\NetworkModule\obj\Debug\NetworkModule.csprojResolveAssemblyReference.cache

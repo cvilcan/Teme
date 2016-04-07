@@ -1,0 +1,5 @@
+D:\Teme\BazaarServer\UnitTest\bin\Debug\UnitTest.dll
+D:\Teme\BazaarServer\UnitTest\bin\Debug\UnitTest.pdb
+D:\Teme\BazaarServer\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+D:\Teme\BazaarServer\UnitTest\obj\Debug\UnitTest.dll
+D:\Teme\BazaarServer\UnitTest\obj\Debug\UnitTest.pdb

@@ -8,7 +8,8 @@ namespace DataAccessLayer.Interfaces
 {
 	public interface IUserRepository
 	{
-		int Login(string username, string hashedPassword);
-		int Register(string username, string hashedPassword);
+		Guid Login(string username, string hashedPassword);
+		Guid Register(string username, string hashedPassword);
+        Tuple<int, string> GetUserDetails(Guid loginGuid);
 	}
 }

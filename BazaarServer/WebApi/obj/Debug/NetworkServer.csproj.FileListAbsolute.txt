@@ -1,0 +1,1 @@
+D:\Teme\BazaarServer\WebApi\obj\Debug\NetworkServer.csprojResolveAssemblyReference.cache
