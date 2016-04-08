@@ -4,15 +4,16 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft;
+using Newtonsoft.Json;
 
 namespace BazaarServer.Areas.Product.Controllers
 {
-    public class ProductController : ApiController
+    sealed class ProductController : ApiController
     {
-        [HttpGet]
-        public string ASD()
+        sealed void asd()
         {
-            return "ASD";
+
         }
     }
 }

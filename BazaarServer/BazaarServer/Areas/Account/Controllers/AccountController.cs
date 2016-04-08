@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace BazaarServer.Areas.Account.Controllers
 {
+    [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private IUserService _userService;
@@ -19,21 +20,17 @@ namespace BazaarServer.Areas.Account.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
         public string Login(UserProfile up)
         {
             return _userService.Login(up.Username, up.HashedPassword).ToString();
         }
 
         [HttpPost]
+        [Route("Register")]
         public string Register(UserProfile up)
         {
             return _userService.Register(up.Username, up.HashedPassword).ToString();
-        }
-
-        [HttpGet]
-        public string ASD()
-        {
-            return "ASD";
         }
     }
 }

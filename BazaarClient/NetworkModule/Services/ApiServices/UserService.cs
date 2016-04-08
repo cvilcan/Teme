@@ -15,8 +15,15 @@ namespace NetworkModule.Services.ApiServices
     {
         public Guid Login(string username, string hashedPassword)
         {
-            Task<Guid> task = LoginAsync(username, hashedPassword);
-            return task.Result;
+            try
+            {
+                Task<Guid> task = LoginAsync(username, hashedPassword);
+                return task.Result;
+            }
+            catch (Exception e)
+            {
+                return Guid.Empty;
+            }
         }
 
         private async Task<Guid> LoginAsync(string username, string hashedPassword)
@@ -49,8 +56,15 @@ namespace NetworkModule.Services.ApiServices
 
         public Guid Register(string username, string hashedPassword)
         {
-            Task<Guid> task = RegisterAsync(username, hashedPassword);
-            return task.Result;
+            try
+            {
+                Task<Guid> task = RegisterAsync(username, hashedPassword);
+                return task.Result;
+            }
+            catch (Exception e)
+            {
+                return Guid.Empty;
+            }
         }
 
         public async Task<Guid> RegisterAsync(string username, string hashedPassword)
@@ -84,7 +98,14 @@ namespace NetworkModule.Services.ApiServices
 
         public void Logout(Guid guid)
         {
-            Task task = LogoutAsync(guid);
+            try
+            {
+                Task task = LogoutAsync(guid);
+            }
+            catch (Exception e)
+            {
+                //
+            }
         }
 
         private async Task LogoutAsync(Guid guid)
