@@ -36,7 +36,10 @@ namespace PresentationLayer.Forms
                 Object o = Guid.Empty;
                 WinformsSession.dictionary.TryGetValue("LoginToken", out o);
                 if (o is Guid)
+                {
                     _accountController.Logout((Guid)o);
+                    WinformsSession.dictionary.Clear();
+                }
                 else MessageBox.Show("Invalid login!");
             }
         }

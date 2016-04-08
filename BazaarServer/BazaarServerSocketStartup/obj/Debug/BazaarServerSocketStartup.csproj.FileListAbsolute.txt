@@ -49,3 +49,12 @@ D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.Dep
 D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.csprojResolveAssemblyReference.cache
 D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.exe
 D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.pdb
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\ProductTester.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\ProductTester.pdb
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Effort.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\NMemory.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Effort.xml
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\NMemory.xml
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Faker.NET4.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\FizzWare.NBuilder.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\de-DE\Faker.NET4.resources.dll

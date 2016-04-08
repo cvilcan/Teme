@@ -29,5 +29,11 @@ namespace BazaarServer.Areas.Account.Controllers
         {
             return _userService.Register(up.Username, up.HashedPassword).ToString();
         }
+
+        [HttpGet]
+        public string ASD()
+        {
+            return "ASD";
+        }
     }
 }

@@ -221,7 +221,6 @@ namespace PresentationLayer.Forms
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             _loginToken = Guid.Empty;
-            WinformsSession.dictionary.Clear();
             this.Hide();
         }
 

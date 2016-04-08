@@ -77,6 +77,10 @@
       <Project>{934eacae-8f2c-40b2-80df-858a8f885529}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProductTester\ProductTester.csproj">
+      <Project>{a048fd05-fc19-4c5e-a52f-77e1e715319e}</Project>
+      <Name>ProductTester</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

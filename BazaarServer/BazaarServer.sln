@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazaarServerSocketStartup",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazaarServer", "BazaarServer\BazaarServer.csproj", "{7B987C10-A21B-4ACA-B375-2AE68754EB8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductTester", "ProductTester\ProductTester.csproj", "{A048FD05-FC19-4C5E-A52F-77E1E715319E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,9 @@ Global
 		{7B987C10-A21B-4ACA-B375-2AE68754EB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B987C10-A21B-4ACA-B375-2AE68754EB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B987C10-A21B-4ACA-B375-2AE68754EB8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A048FD05-FC19-4C5E-A52F-77E1E715319E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A048FD05-FC19-4C5E-A52F-77E1E715319E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A048FD05-FC19-4C5E-A52F-77E1E715319E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

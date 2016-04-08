@@ -15,8 +15,15 @@ namespace DataAccessLayer
     
     public partial class BazaarEntities : DbContext
     {
+        private System.Data.Entity.Core.EntityClient.EntityConnection _connection;
+
         public BazaarEntities()
             : base("name=BazaarEntities")
+        {
+        }
+
+        public BazaarEntities(System.Data.Entity.Core.EntityClient.EntityConnection _connection)
+            : base(_connection, false)
         {
         }
     

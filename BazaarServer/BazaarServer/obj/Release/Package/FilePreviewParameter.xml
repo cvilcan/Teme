@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/Bazaar" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Teme\\BazaarServer\\BazaarServer\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Teme\\BazaarServer\\BazaarServer\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BazaarEntities-Web.config Connection String" description="" value="metadata=res://*/Model.csdl|res://*/Model.ssdl|res://*/Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDb)\v11.0;initial catalog=SchoolBazaar;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Teme\\BazaarServer\\BazaarServer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BazaarEntities']/@connectionString" />
+  </parameter>
+</parameters>
