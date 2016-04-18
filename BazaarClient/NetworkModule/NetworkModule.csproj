@@ -59,6 +59,7 @@
     <Compile Include="PresentationModels\Product.cs" />
     <Compile Include="PresentationModels\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiServices\ProductService.cs" />
     <Compile Include="Services\ApiServices\UserService.cs" />
     <Compile Include="Services\SocketServices\ProductService.cs" />
     <Compile Include="Services\SocketServices\UserService.cs" />

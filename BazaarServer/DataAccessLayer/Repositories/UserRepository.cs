@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.EntityClient;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -11,9 +12,21 @@ namespace DataAccessLayer.Repositories
 {
 	public class UserRepository: IUserRepository
 	{
+        private readonly EntityConnection _connection = null;
+
+        public UserRepository()
+        {
+            _connection = null;
+        }
+
+        public UserRepository(EntityConnection con)
+        {
+            _connection = con;
+        }
+
 		public Guid Login(string username, string hashedPassword)
 		{
-			using (var context = new BazaarEntities())
+			using (var context = (_connection != null ? new BazaarEntities(_connection) : new BazaarEntities()))
 			{
 				UserProfile userProfile = context.UserProfiles.Where(u => u.Username == username).FirstOrDefault();
                 Guid returnGuid = Guid.Empty;
@@ -45,7 +58,7 @@ namespace DataAccessLayer.Repositories
 
 		public Guid Register(string username, string hashedPassword)
 		{
-			using (var context = new BazaarEntities())
+			using (var context = (_connection != null ? new BazaarEntities(_connection) : new BazaarEntities()))
 			{
 				RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 				byte[] byteSalt = new byte[4];
@@ -78,7 +91,7 @@ namespace DataAccessLayer.Repositories
 
         public Tuple<int, string> GetUserDetails(Guid loginGuid)
         {
-            using (var context = new BazaarEntities())
+            using (var context = (_connection != null ? new BazaarEntities(_connection) : new BazaarEntities()))
             {
                 UserProfile userProfile = context.UserProfiles.Where(profile => profile.LoginToken == loginGuid).FirstOrDefault();
                 Tuple<int, string> userDetails = new Tuple<int,string>(-1, "");

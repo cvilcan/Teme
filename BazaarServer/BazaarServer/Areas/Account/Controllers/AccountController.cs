@@ -21,16 +21,41 @@ namespace BazaarServer.Areas.Account.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public string Login(UserProfile up)
+        public IHttpActionResult Login(UserProfile up)
         {
-            return _userService.Login(up.Username, up.HashedPassword).ToString();
+            IHttpActionResult result;
+            Guid userID;
+
+            userID = _userService.Login(up.Username, up.HashedPassword);
+            if (userID == Guid.Empty)
+                result = NotFound();
+            else
+                result = Ok(Convert.ToString(userID));
+
+            return result;
         }
 
         [HttpPost]
         [Route("Register")]
-        public string Register(UserProfile up)
+        public IHttpActionResult Register(UserProfile up)
         {
-            return _userService.Register(up.Username, up.HashedPassword).ToString();
+            IHttpActionResult result;
+            Guid userID;
+
+            userID = _userService.Register(up.Username, up.HashedPassword);
+            if (userID == Guid.Empty)
+                result = NotFound();
+            else
+                result = Ok(Convert.ToString(userID));
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("Uaaa")]
+        public IHttpActionResult QWE()
+        {
+            return Ok("Uaaa");
         }
     }
 }

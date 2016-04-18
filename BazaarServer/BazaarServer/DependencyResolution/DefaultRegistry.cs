@@ -34,7 +34,7 @@ namespace BazaarServer.DependencyResolution {
                 });
 
             For<IProductService>().Use<ProductService>();
-            For<IProductRepository>().Use<ProductRepository>();
+            For<IProductRepository>().Use<ProductRepository>(() => new ProductRepository());
             For<IUserRepository>().Use<UserRepository>();
             For<IUserService>().Use<UserService>();
         }
