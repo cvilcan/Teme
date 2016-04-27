@@ -16,10 +16,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace BazaarServer.DependencyResolution {
-    using BusinessLayer.Interfaces;
-    using BusinessLayer.Services;
-    using DataAccessLayer.Interfaces;
-    using DataAccessLayer.Repositories;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	
@@ -32,11 +28,7 @@ namespace BazaarServer.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
-
-            For<IProductService>().Use<ProductService>();
-            For<IProductRepository>().Use<ProductRepository>(() => new ProductRepository());
-            For<IUserRepository>().Use<UserRepository>();
-            For<IUserService>().Use<UserService>();
+            //For<IExample>().Use<Example>();
         }
 
         #endregion

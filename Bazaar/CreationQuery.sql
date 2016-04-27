@@ -26,7 +26,8 @@ create table ProductTypes
 create table Stock
 (
 	ProductID int,
-	Quantity int default(0) not null,
+	InitialQuantity int default(0) not null,
+	SoldQuantity int default(0) not null,
 	constraint pk_Stock primary key(ProductID),
 	constraint fk_Stock_Product foreign key(ProductID) references Product(ProductID)
 )

@@ -1,6 +1,5 @@
-D:\Teme\BazaarServer\BazaarServer\bin\BazaarServer.dll.config
 D:\Teme\BazaarServer\BazaarServer\bin\BazaarServer.dll
-D:\Teme\BazaarServer\BazaarServer\bin\BazaarServer.pdb
+D:\Teme\BazaarServer\BazaarServer\bin\BazaarServer.dll.config
 D:\Teme\BazaarServer\BazaarServer\bin\Antlr3.Runtime.dll
 D:\Teme\BazaarServer\BazaarServer\bin\BusinessLayer.dll
 D:\Teme\BazaarServer\BazaarServer\bin\DataAccessLayer.dll
@@ -47,3 +46,4 @@ D:\Teme\BazaarServer\BazaarServer\bin\EntityFramework.xml
 D:\Teme\BazaarServer\BazaarServer\obj\Debug\BazaarServer.csprojResolveAssemblyReference.cache
 D:\Teme\BazaarServer\BazaarServer\obj\Debug\BazaarServer.dll
 D:\Teme\BazaarServer\BazaarServer\obj\Debug\BazaarServer.pdb
+D:\Teme\BazaarServer\BazaarServer\bin\BazaarServer.pdb

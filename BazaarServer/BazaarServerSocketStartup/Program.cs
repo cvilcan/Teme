@@ -1,5 +1,7 @@
 ﻿using BazaarServer.Interfaces;
 using BazaarServer.SocketServer;
+using BazaarServer.SocketServer.Containers;
+using BazaarServer.SocketServer.Interfaces;
 using BusinessLayer.Interfaces;
 using BusinessLayer.Services;
 using DataAccessLayer;
@@ -21,18 +23,18 @@ namespace BazaarServerSocketStartup
 	{
 		static void Main(string[] args)
 		{
-			var container = new Container(x =>
+			var container = new MyContainer(x =>
 			{
 				x.For<IProductService>().Use<ProductService>();
 				x.For<IProductRepository>().Use<ProductRepository>().SelectConstructor(() => new ProductRepository());
 				x.For<IRequestHandler>().Use<RequestHandler>();
-				x.For<IUserRepository>().Use<UserRepository>();
+				x.For<IUserRepository>().Use<UserRepository>().SelectConstructor(() => new UserRepository());
 				x.For<IUserService>().Use<UserService>();
 				x.For<AsynchronousSocketListener>().Use<AsynchronousSocketListener>();
                 x.For<ProductRepository>().Use<ProductRepository>().SelectConstructor(() => new ProductRepository());
                 x.For<BazaarEntities>().Use<BazaarEntities>().SelectConstructor(() => new BazaarEntities());
 			});
-            var asd = container.GetInstance<ProductRepository>();
+            container.Inject<IDependencyInjectionContainer>(container);
 			AsynchronousSocketListener listener = container.GetInstance<AsynchronousSocketListener>();
 
 			Thread t = new Thread(listener.StartListening);

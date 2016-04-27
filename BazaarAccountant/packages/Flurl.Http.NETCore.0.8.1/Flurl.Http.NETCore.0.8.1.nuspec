@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Flurl.Http.NETCore</id>
+    <version>0.8.1</version>
+    <title>Flurl.Http.NETCore</title>
+    <authors>Todd Menier</authors>
+    <owners>Todd Menier</owners>
+    <licenseUrl>https://raw.githubusercontent.com/tmenier/Flurl/master/LICENSE</licenseUrl>
+    <projectUrl>http://tmenier.github.io/Flurl</projectUrl>
+    <iconUrl>https://pbs.twimg.com/profile_images/534024476296376320/IuPGZ_bX_400x400.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Deprecated, use Flurl.Http https://www.nuget.org/packages/Flurl.Http/</description>
+    <summary>Deprecated, use Flurl.Http https://www.nuget.org/packages/Flurl.Http/</summary>
+    <releaseNotes>0.8.1 - Added Flurl.Http target to .NET Platform Standard 1.0 (NET45+, NETCore, other targets)</releaseNotes>
+    <tags>httpclient rest json http fluent url uri tdd assert async</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Flurl.NETCore" version="1.1.1" />
+        <dependency id="Newtonsoft.Json" version="8.0.3" />
+      </group>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="Flurl.NETCore" version="1.1.1" />
+        <dependency id="Newtonsoft.Json" version="8.0.3" />
+        <dependency id="System.Dynamic.Runtime" version="4.0.10" />
+        <dependency id="System.IO.FileSystem" version="4.0.0" />
+        <dependency id="System.Net.Http" version="4.0.0" />
+        <dependency id="System.Text.RegularExpressions" version="4.0.10" />
+        <dependency id="System.Threading" version="4.0.10" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

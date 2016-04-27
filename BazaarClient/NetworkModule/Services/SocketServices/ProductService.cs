@@ -20,28 +20,31 @@ namespace NetworkModule.Services.SocketServices
 
 		public List<PresentationModels.Product> GetAllProducts()
 		{
-			string response = _client.Send("/Product/GetAllProducts");
+			string response = _client.Send("&Product&GetAllProducts");
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)
 				throw new Exception(response);
 			else
-				return JsonConvert.DeserializeObject<List<Product>>(response);
+            {
+                List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(response).Where(p => p.Quantity > 0).ToList();
+                return productList;
+            }
 		}
 
 		public List<PresentationModels.Product> GetAllProducts(List<int> selectedCategoryIDs)
 		{
-			string query = "/Product/GetAllProducts/" + JsonConvert.SerializeObject(selectedCategoryIDs);
+			string query = "&Product&GetAllProducts&" + JsonConvert.SerializeObject(selectedCategoryIDs);
 			string response = _client.Send(query);
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)
 				throw new Exception(response);
 			else
-				return JsonConvert.DeserializeObject<List<Product>>(response);
+				return JsonConvert.DeserializeObject<List<Product>>(response).Where(p => p.Quantity > 0).ToList();
 		}
 
 		public List<PresentationModels.Type> GetAllTypes()
 		{
-			string response = _client.Send("/Product/GetAllTypes");
+			string response = _client.Send("&Product&GetAllTypes");
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)
 				throw new Exception(response);
@@ -51,8 +54,8 @@ namespace NetworkModule.Services.SocketServices
 
 		public string BuyProduct(Guid loginToken, int productID, int quantity)
 		{
-			string query = "/Product/BuyProduct/" + Convert.ToString(loginToken) + "/" + Convert.ToString(productID)
-				+ "/" + Convert.ToString(quantity);
+            string query = "&Product&BuyProduct&" + JsonConvert.SerializeObject(loginToken) + "&" + JsonConvert.SerializeObject(productID)
+                + "&" + JsonConvert.SerializeObject(quantity);
 			string response = _client.Send(query);
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)
@@ -63,7 +66,7 @@ namespace NetworkModule.Services.SocketServices
 
 		public List<Product> GetAllProductsFromCart(Guid loginToken)
 		{
-			string query = "/Product/GetAllProductsFromCart/" + Convert.ToString(loginToken);
+            string query = "&Product&GetAllProductsFromCart&" + JsonConvert.SerializeObject(loginToken);
 			string response = _client.Send(query);
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)

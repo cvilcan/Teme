@@ -23,7 +23,8 @@
     <EntitySetMapping Name="Stocks">
       <EntityTypeMapping TypeName="BazaarModel.Stock">
         <MappingFragment StoreEntitySet="Stock">
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SoldQuantity" ColumnName="SoldQuantity" />
+          <ScalarProperty Name="InitialQuantity" ColumnName="InitialQuantity" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
         </MappingFragment>
       </EntityTypeMapping>

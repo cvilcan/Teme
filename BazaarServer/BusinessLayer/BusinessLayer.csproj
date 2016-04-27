@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="PresentationModels\AccountantProduct.cs" />
     <Compile Include="PresentationModels\Product.cs" />
     <Compile Include="PresentationModels\Type.cs" />
     <Compile Include="PresentationModels\UserDetails.cs" />

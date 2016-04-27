@@ -36,7 +36,8 @@
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="InitialQuantity" Type="int" Nullable="false" />
+          <Property Name="SoldQuantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Type">
           <Key>
@@ -198,7 +199,8 @@
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="InitialQuantity" Type="Int32" Nullable="false" />
+          <Property Name="SoldQuantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="BazaarModel.fk_Stock_Product" FromRole="Stock" ToRole="Product" />
         </EntityType>
         <EntityType Name="Type">
@@ -288,7 +290,8 @@
           <EntitySetMapping Name="Stocks">
             <EntityTypeMapping TypeName="BazaarModel.Stock">
               <MappingFragment StoreEntitySet="Stock">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SoldQuantity" ColumnName="SoldQuantity" />
+                <ScalarProperty Name="InitialQuantity" ColumnName="InitialQuantity" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
               </MappingFragment>
             </EntityTypeMapping>

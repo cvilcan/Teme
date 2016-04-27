@@ -60,14 +60,14 @@ namespace BazaarServer.Areas.Product.Controllers
             return result;
         }
 
-        [Route("{userID}/{productID}/{quantity}")]
-        public IHttpActionResult PostBuyProduct(int userID, int productID, int quantity)
+        [Route("{userID}/{productID}/{quantity:min(10)}")]
+        public IHttpActionResult PostBuyProduct(Guid loginToken, int productID, int quantity)
         {
             IHttpActionResult result;
 
             try
             {
-                _productService.BuyProduct(userID, productID, quantity);
+                _productService.BuyProduct(loginToken, productID, quantity);
                 result = Ok("Purchase succesful!");
             }
             catch (Exception e)
@@ -78,11 +78,11 @@ namespace BazaarServer.Areas.Product.Controllers
             return result;
         }
 
-        [Route("{userID}")]
-        public IHttpActionResult GetAllProductsFromCart(int userID)
+        [Route("{loginToken}")]
+        public IHttpActionResult GetAllProductsFromCart(Guid loginToken)
         {
             IHttpActionResult result;
-            List<BusinessLayer.PresentationModels.Product> productList = _productService.GetAllProductsFromCart(userID);
+            List<BusinessLayer.PresentationModels.Product> productList = _productService.GetAllProductsFromCart(loginToken);
 
             if (productList == null)
                 productList = new List<BusinessLayer.PresentationModels.Product>();

@@ -51,7 +51,8 @@
       <PropertyRef Name="ProductID" />
     </Key>
     <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="InitialQuantity" Type="Int32" Nullable="false" />
+    <Property Name="SoldQuantity" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Product" Relationship="BazaarModel.fk_Stock_Product" FromRole="Stock" ToRole="Product" />
   </EntityType>
   <EntityType Name="Type">

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazaarAccountant", "BazaarAccountant\BazaarAccountant.csproj", "{0C537122-EE05-4E38-8885-5CC65A89A89B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkModule", "NetworkModule\NetworkModule.csproj", "{10075A02-BFE5-4BF9-A7E3-12243FBD4397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkUtilities", "NetworkUtilities\NetworkUtilities.csproj", "{54E7B41B-B776-463D-9D4D-30AF0BA1B093}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C537122-EE05-4E38-8885-5CC65A89A89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C537122-EE05-4E38-8885-5CC65A89A89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C537122-EE05-4E38-8885-5CC65A89A89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C537122-EE05-4E38-8885-5CC65A89A89B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10075A02-BFE5-4BF9-A7E3-12243FBD4397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10075A02-BFE5-4BF9-A7E3-12243FBD4397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10075A02-BFE5-4BF9-A7E3-12243FBD4397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10075A02-BFE5-4BF9-A7E3-12243FBD4397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E7B41B-B776-463D-9D4D-30AF0BA1B093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E7B41B-B776-463D-9D4D-30AF0BA1B093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E7B41B-B776-463D-9D4D-30AF0BA1B093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E7B41B-B776-463D-9D4D-30AF0BA1B093}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -20,7 +20,7 @@ namespace NetworkModule.Services.SocketServices
 
 		public Guid Login(string username, string hashedPassword)
 		{
-			string query = "/Account/Login/" + username + "/" + hashedPassword;
+            string query = "&User&Login&" + JsonConvert.SerializeObject(username) + "&" + JsonConvert.SerializeObject(hashedPassword);
 			string response = _client.Send(query);
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)
@@ -29,7 +29,7 @@ namespace NetworkModule.Services.SocketServices
 				try
 				{
                     Guid loginGuid = Guid.Empty;
-                    Guid.TryParse(response, out loginGuid);
+                    Guid.TryParse(JsonConvert.DeserializeObject<string>(response), out loginGuid);
                     return (loginGuid);
 				}
 				catch (Exception e)
@@ -40,7 +40,7 @@ namespace NetworkModule.Services.SocketServices
 
 		public Guid Register(string username, string hashedPassword)
 		{
-			string query = "/Account/Register/" + username + "/" + hashedPassword;
+            string query = "&User&Register&" + JsonConvert.SerializeObject(username) + "&" + JsonConvert.SerializeObject(hashedPassword);
 			string response = _client.Send(query);
 			response = response.Remove(response.Length - 5, 5);
 			if (response.IndexOf("Failure!") != -1)
@@ -60,7 +60,7 @@ namespace NetworkModule.Services.SocketServices
 
         public void Logout(Guid guid)
         {
-            string query = "/Account/Logout/" + Convert.ToString(guid);
+            string query = "&User&Logout&" + JsonConvert.SerializeObject(guid);
             string response = _client.Send(query);
             response = response.Remove(response.Length - 5, 5);
             if (response.IndexOf("Failure!") != -1)

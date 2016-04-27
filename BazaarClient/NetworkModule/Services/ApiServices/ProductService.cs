@@ -17,7 +17,7 @@ namespace NetworkModule.Services.ApiServices
             try
             {
                 Task<List<Product>> task = GetAllProductsAsync();
-                return task.Result;
+                return task.Result.Where(p => p.Quantity > 0).ToList();
             }
             catch (Exception e)
             {

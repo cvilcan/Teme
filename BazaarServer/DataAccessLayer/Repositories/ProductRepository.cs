@@ -63,11 +63,11 @@ namespace DataAccessLayer.Repositories
 				if (stock == null)
 					throw new Exception("No stock with productID " + Convert.ToString(productID) + " found!");
 
-				if (quantity > stock.Quantity)
+				if (quantity > stock.InitialQuantity - stock.SoldQuantity)
 					throw new Exception("Requested quantity exceeds stock!");
 				
 				context.Stocks.Attach(stock);
-				stock.Quantity -= quantity;
+				stock.SoldQuantity += quantity;
 				context.SaveChanges();
 			}
 		}
@@ -88,8 +88,8 @@ namespace DataAccessLayer.Repositories
 				}
 				else
 				{
+                    context.Carts.Attach(cart);
 					cart.Quantity += quantity;
-					context.Carts.Attach(cart);
 				}
 
 				context.SaveChanges();
@@ -142,13 +142,14 @@ namespace DataAccessLayer.Repositories
                     stockToAddOrUpdate = new Stock()
                     {
                         ProductID = productToAdd.ProductID,
-                        Quantity = quantity
+                        InitialQuantity = quantity
                     };
                     context.Stocks.Add(stockToAddOrUpdate);
                 }
                 else
                 {
-                    stockToAddOrUpdate.Quantity = quantity;
+                    stockToAddOrUpdate.InitialQuantity = quantity;
+                    stockToAddOrUpdate.SoldQuantity = 0;
                     context.Stocks.Attach(stockToAddOrUpdate);
                 }
 

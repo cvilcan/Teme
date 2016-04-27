@@ -12,11 +12,42 @@ namespace BusinessLayer.Services
 	public class ProductService: IProductService
 	{
 		private IProductRepository _productRepository;
+        private IUserRepository _userRepository;
 
 		public ProductService(IProductRepository dependency, IUserRepository depe2)
 		{
 			_productRepository = dependency;
+            _userRepository = depe2;
 		}
+
+        public List<AccountantProduct> GetAllAccountantProducts()
+        {
+            var productList = _productRepository.GetAllProducts();
+            var stockList = _productRepository.GetAllStock();
+            List<PresentationModels.AccountantProduct> resultList = new List<PresentationModels.AccountantProduct>();
+
+            foreach (var item in productList)
+            {
+                List<BusinessLayer.PresentationModels.Type> typeList = new List<PresentationModels.Type>();
+                foreach (var type in item.Types)
+                    typeList.Add(new PresentationModels.Type()
+                    {
+                        TypeID = type.TypeID,
+                        TypeName = type.TypeName
+                    });
+                resultList.Add(new PresentationModels.AccountantProduct()
+                {
+                    Details = item.Details,
+                    ProductID = item.ProductID,
+                    ProductName = item.ProductName,
+                    Price = item.Price,
+                    InitialStock = stockList.Where(x => x.ProductID == item.ProductID).First().InitialQuantity,
+                    Sold = stockList.Where(x => x.ProductID == item.ProductID).First().SoldQuantity,
+                    Types = typeList
+                });
+            }
+            return resultList;
+        }
 
 		public List<Product> GetAllProducts()
 		{
@@ -39,7 +70,7 @@ namespace BusinessLayer.Services
 						ProductID = item.ProductID,
 						ProductName = item.ProductName,
 						Price = item.Price,
-						Quantity = stockList.Where(x => x.ProductID == item.ProductID).First().Quantity,
+						Quantity = stockList.Where(x => x.ProductID == item.ProductID).Select(x => x.InitialQuantity - x.SoldQuantity).First(),
 						Types = typeList
 					});
 			}
@@ -86,22 +117,24 @@ namespace BusinessLayer.Services
 			return typeList;
 		}
 
-		public void BuyProduct(int userID, int productID, int quantity)
+        public void BuyProduct(Guid loginToken, int productID, int quantity)
 		{
+            var user = _userRepository.GetUserDetails(loginToken);
 			_productRepository.SubstractFromStock(productID, quantity);
-			_productRepository.AddToCart(userID, productID, quantity);
+            _productRepository.AddToCart(user.Item1, productID, quantity);
 		}
 
-		public List<Product> GetAllProductsFromCart(int userID)
+        public List<Product> GetAllProductsFromCart(Guid loginToken)
 		{
 			var carts = _productRepository.GetAllCarts();
 			var products = _productRepository.GetAllProducts();
+            var user = _userRepository.GetUserDetails(loginToken);
 			products = 	
 					(
 					from p in products
 					join c in carts
 					on p.ProductID equals c.ProductID
-					where c.UserID == userID
+                    where c.UserID == user.Item1
 					select p
 					).ToList();
 			List<Product> resultList = new List<Product>();
@@ -114,7 +147,7 @@ namespace BusinessLayer.Services
 							TypeID = type.TypeID,
 							TypeName = type.TypeName
 						});
-				int quantity = carts.Where(c => (c.UserID == userID) && (c.ProductID == item.ProductID)).FirstOrDefault().Quantity;
+				int quantity = carts.Where(c => (c.UserID == user.Item1) && (c.ProductID == item.ProductID)).FirstOrDefault().Quantity;
 				resultList.Add(new Product()
 					{
 						Details = item.Details,

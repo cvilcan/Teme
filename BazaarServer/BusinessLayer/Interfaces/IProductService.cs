@@ -12,7 +12,7 @@ namespace BusinessLayer.Interfaces
 		List<Product> GetAllProducts();
 		List<Product> GetAllProducts(List<int> selectedCategoryIDs);
 		List<BusinessLayer.PresentationModels.Type> GetAllTypes();
-		void BuyProduct(int userID, int productID, int quantity);
-		List<Product> GetAllProductsFromCart(int userID);
+		void BuyProduct(Guid loginToken, int productID, int quantity);
+        List<Product> GetAllProductsFromCart(Guid loginToken);
 	}
 }

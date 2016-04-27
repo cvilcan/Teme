@@ -15,7 +15,8 @@ namespace DataAccessLayer
     public partial class Stock
     {
         public int ProductID { get; set; }
-        public int Quantity { get; set; }
+        public int InitialQuantity { get; set; }
+        public int SoldQuantity { get; set; }
     
         public virtual Product Product { get; set; }
     }

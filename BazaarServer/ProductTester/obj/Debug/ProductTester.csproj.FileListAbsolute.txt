@@ -54,3 +54,5 @@ D:\Teme\BazaarServer\ProductTester\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Teme\BazaarServer\ProductTester\bin\Debug\de-DE\Faker.NET4.resources.dll
 D:\Teme\BazaarServer\ProductTester\obj\Debug\ProductTester.dll
 D:\Teme\BazaarServer\ProductTester\obj\Debug\ProductTester.pdb
+D:\Teme\BazaarServer\ProductTester\bin\Debug\nunit.framework.dll
+D:\Teme\BazaarServer\ProductTester\bin\Debug\nunit.framework.xml

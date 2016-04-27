@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Flurl.NETCore</id>
+    <version>1.1.1</version>
+    <title>Flurl.NETCore</title>
+    <authors>Todd Menier</authors>
+    <owners>Todd Menier</owners>
+    <licenseUrl>https://raw.githubusercontent.com/tmenier/Flurl/master/LICENSE</licenseUrl>
+    <projectUrl>http://tmenier.github.io/Flurl</projectUrl>
+    <iconUrl>https://pbs.twimg.com/profile_images/534024476296376320/IuPGZ_bX_400x400.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Deprecated, use Flurl https://www.nuget.org/packages/Flurl/</description>
+    <summary>Deprecated, use Flurl https://www.nuget.org/packages/Flurl/</summary>
+    <releaseNotes>1.1.1 - Added Flurl.NETCore target to .NET Platform Standard 1.0 (NET45+, NETCore, other targets)</releaseNotes>
+    <tags>fluent url uri querystring builder</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework="Unsupported0.0">
+        <dependency id="System.Linq" version="4.0.0" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.0.0" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

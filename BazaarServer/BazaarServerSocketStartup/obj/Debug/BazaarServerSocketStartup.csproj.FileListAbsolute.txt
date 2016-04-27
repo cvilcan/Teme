@@ -1,4 +1,6 @@
 D:\Teme\BazaarServer\BazaarServer\bin\Debug\BazaarServerSocketStartup.exe.config
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Moq.xml
+D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.csprojResolveAssemblyReference.cache
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\BazaarServerSocketStartup.exe.config
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\BazaarServerSocketStartup.exe
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\BazaarServerSocketStartup.pdb
@@ -17,11 +19,12 @@ D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Mvc.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\WebActivatorEx.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Http.WebHost.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\StructureMap.Web.dll
-D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Newtonsoft.Json.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Moq.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Effort.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Faker.NET4.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\FizzWare.NBuilder.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Net.Http.Formatting.dll
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Newtonsoft.Json.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\WebGrease.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Razor.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.Razor.dll
@@ -29,7 +32,6 @@ D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\NMemory.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Antlr3.Runtime.dll
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.Deployment.dll
-D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\BazaarServer.pdb
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\BusinessLayer.pdb
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\DataAccessLayer.pdb
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\ProductTester.pdb
@@ -45,9 +47,9 @@ D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Optimization
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Mvc.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Http.WebHost.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\StructureMap.Web.pdb
-D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Newtonsoft.Json.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Effort.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Net.Http.Formatting.xml
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Newtonsoft.Json.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.Razor.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.xml
@@ -55,8 +57,6 @@ D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\NMemory.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Antlr3.Runtime.pdb
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\de-DE\Faker.NET4.resources.dll
-D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.csprojResolveAssemblyReference.cache
 D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.exe
 D:\Teme\BazaarServer\BazaarServerSocketStartup\obj\Debug\BazaarServerSocketStartup.pdb
-D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Moq.dll
-D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\Moq.xml
+D:\Teme\BazaarServer\BazaarServerSocketStartup\bin\Debug\BazaarServer.pdb
